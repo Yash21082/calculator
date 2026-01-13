@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Calculator</title>
+<style>
+    body{
+        background: #0f172a;
+        color: white;
+        font-family: Arial;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .box{
+        background: #1e293b;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        width: 300px;
+    }
+    input{
+        width: 90%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+    }
+    button{
+        width: 60px;
+        height: 40px;
+        margin: 5px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background: #3b82f6;
+        color: white;
+    }
+    button:hover{
+        background: #2563eb;
+    }
+    #result{
+        margin-top: 15px;
+        font-size: 18px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Mini Calculator</h2>
+
+    <input id="num1" type="number" placeholder="Enter first number">
+    <input id="num2" type="number" placeholder="Enter second number">
+
+    <div>
+        <button id="add">+</button>
+        <button id="sub">−</button>
+        <button id="mul">×</button>
+        <button id="div">÷</button>
+    </div>
+
+    <div id="result">Result: </div>
+</div>
+
+<script>
+let n1 = document.getElementById("num1");
+let n2 = document.getElementById("num2");
+let result = document.getElementById("result");
+
+document.getElementById("add").addEventListener("click", ()=>{
+    result.innerText = "Result: " + (Number(n1.value) + Number(n2.value));
+});
+
+document.getElementById("sub").addEventListener("click", ()=>{
+    result.innerText = "Result: " + (Number(n1.value) - Number(n2.value));
+});
+
+document.getElementById("mul").addEventListener("click", ()=>{
+    result.innerText = "Result: " + (Number(n1.value) * Number(n2.value));
+});
+
+document.getElementById("div").addEventListener("click", ()=>{
+    if(n2.value == 0){
+        result.innerText = "Cannot divide by 0";
+    } else {
+        result.innerText = "Result: " + (Number(n1.value) / Number(n2.value));
+    }
+});
+</script>
+
+</body>
+</html>
